@@ -5,9 +5,14 @@ NOTA: Incluye delays automáticos para evitar rate limit (10 RPM free tier)
 """
 
 import os
+import sys
 import time
 from dotenv import load_dotenv
 import google.generativeai as genai
+
+# Configurar encoding UTF-8 para evitar problemas
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding='utf-8')
 
 # Cargar variables de entorno
 load_dotenv()
@@ -17,23 +22,23 @@ DELAY_BETWEEN_TESTS = 7
 
 def wait_for_rate_limit():
     """Espera para evitar rate limit"""
-    print(f"\n⏳ Esperando {DELAY_BETWEEN_TESTS}s para evitar rate limit...", end="", flush=True)
+    print(f"\n[*] Esperando {DELAY_BETWEEN_TESTS}s para evitar rate limit...", end="", flush=True)
     time.sleep(DELAY_BETWEEN_TESTS)
-    print(" ✓")
+    print(" OK")
 
 def main():
     print("\n" + "=" * 70)
-    print("   TEST DE VERIFICACIÓN GEMINI API")
+    print("   TEST DE VERIFICACION GEMINI API - MODELO gemini-2.5-pro")
     print("=" * 70)
     
     # Configurar API
     api_key = os.getenv('GEMINI_API_KEY')
     if not api_key or api_key == "TU_API_KEY_AQUI":
-        print("\n❌ ERROR: GEMINI_API_KEY no configurada en .env")
+        print("\n[X] ERROR: GEMINI_API_KEY no configurada en .env")
         return False
     
     genai.configure(api_key=api_key)
-    print(f"\n✅ API Key configurada: {api_key[:20]}...")
+    print(f"\n[OK] API Key configurada: {api_key[:20]}...")
     
     # TEST 1: Texto simple
     print("\n" + "-" * 70)
@@ -41,7 +46,7 @@ def main():
     print("-" * 70)
     
     try:
-        model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        model = genai.GenerativeModel('gemini-2.5-pro')
         response = model.generate_content("Di 'Hola, estoy funcionando correctamente'")
         print(f"\n📝 Respuesta:")
         print(f"   {response.text}")
@@ -59,7 +64,7 @@ def main():
     
     try:
         model = genai.GenerativeModel(
-            'gemini-2.0-flash-exp',
+            'gemini-2.5-pro',
             system_instruction="Eres un asistente de ventas. Responde en español de forma amigable."
         )
         
@@ -79,7 +84,7 @@ def main():
     print("-" * 70)
     
     try:
-        model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        model = genai.GenerativeModel('gemini-2.5-pro')
         chat = model.start_chat(history=[])
         
         # Turno 1
@@ -107,7 +112,7 @@ def main():
     print("-" * 70)
     
     try:
-        model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        model = genai.GenerativeModel('gemini-2.5-pro')
         
         # Creativa (temperatura alta)
         print("\n🔥 Con temperatura 1.0 (creativa):")
@@ -144,7 +149,7 @@ def main():
     print("-" * 70)
     
     try:
-        model = genai.GenerativeModel('gemini-2.0-flash-exp')
+        model = genai.GenerativeModel('gemini-2.5-pro')
         
         print("\n📡 Recibiendo respuesta en tiempo real:")
         print("   ", end="", flush=True)

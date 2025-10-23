@@ -4,11 +4,14 @@ Objetivo: Probar todas las capacidades de texto de Gemini
 """
 
 import sys
+import os
 sys.path.append('..')
 
-from google import genai
-from google.genai import types
-from config import Config
+import google.generativeai as genai
+from dotenv import load_dotenv
+
+# Cargar variables de entorno
+load_dotenv()
 
 def test_1_respuesta_simple():
     """Test 1: Respuesta simple sin configuración"""
@@ -16,11 +19,11 @@ def test_1_respuesta_simple():
     print("TEST 1: Respuesta Simple")
     print("=" * 60)
     
-    client = genai.Client(api_key=Config.GEMINI_API_KEY)
+    genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
+    model = genai.GenerativeModel('gemini-2.0-flash-exp')
     
-    response = client.models.generate_content(
-        model=Config.MODEL_CHAT,
-        contents="¿Cómo puedo ayudar a un cliente que pregunta por envíos?"
+    response = model.generate_content(
+        "¿Cómo puedo ayudar a un cliente que pregunta por envíos?"
     )
     
     print(f"\n📝 Respuesta:")
