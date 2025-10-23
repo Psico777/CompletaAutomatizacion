@@ -1,0 +1,49 @@
+# Dependencias del Proyecto - Sistema de Automatización
+
+# ============================================
+# CORE - Inteligencia Artificial
+# ============================================
+google-generativeai>=0.8.0  # API de Gemini
+pydantic>=2.0.0            # Validación de datos y schemas
+
+# ============================================
+# WEB AUTOMATION
+# ============================================
+selenium>=4.15.0           # Automatización de navegador
+webdriver-manager>=4.0.0   # Gestión automática de drivers
+
+# ============================================
+# IMAGE PROCESSING & OCR
+# ============================================
+Pillow>=10.0.0            # Procesamiento de imágenes
+pytesseract>=0.3.10       # OCR (requiere Tesseract instalado)
+opencv-python>=4.8.0      # Visión artificial y pre-procesamiento
+
+# ============================================
+# UTILIDADES
+# ============================================
+python-dotenv>=1.0.0      # Variables de entorno
+requests>=2.31.0          # HTTP requests
+httpx>=0.25.0             # Cliente HTTP moderno
+
+# ============================================
+# DATA & TIME
+# ============================================
+python-dateutil>=2.8.2    # Parsing de fechas
+
+# ============================================
+# AUTOMATION EXTRAS
+# ============================================
+pyautogui>=0.9.54         # Control de teclado/mouse (para subida de archivos)
+schedule>=1.2.0           # Programación de tareas
+
+# ============================================
+# LOGGING & MONITORING
+# ============================================
+coloredlogs>=15.0         # Logs coloridos en consola
+
+# ============================================
+# TESTING (opcional pero recomendado)
+# ============================================
+pytest>=7.4.0             # Testing framework
+pytest-cov>=4.1.0         # Cobertura de tests

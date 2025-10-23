@@ -1,4 +1,278 @@
+# 🤖 Sistema de Automatización Completo con IA
+
+## 🎯 Descripción del Proyecto
+
+Sistema integral de automatización para gestión de redes sociales, atención al cliente y verificación de pagos usando **Gemini AI**, **Python** y **Selenium**.
+
+### Características Principales
+
+- ✅ **Bot de WhatsApp** con respuestas inteligentes usando Gemini 2.5 Pro
+- ✅ **Verificación automática de pagos Yape** con OCR y Vision AI
+- ✅ **Bot de Facebook Messenger** para atención multicanal
+- ✅ **Publicación automática de estados** con contenido generado por IA
+- ✅ **Generación de imágenes promocionales** con Gemini Image
+- ✅ **Sistema de logging y monitoreo** completo
+
+---
+
+## 📚 Documentación
+
+- 📖 **[PLAN_DESARROLLO.md](PLAN_DESARROLLO.md)** - Guía completa paso a paso del proyecto
+- 📖 **[apis.md](apis.md)** - Documentación de la API de Gemini
+- 🧪 **experimental/** - Ejemplos y pruebas de cada funcionalidad
+
+---
+
+## 🚀 Instalación Rápida
+
+### 1. Requisitos Previos
+
+- Python 3.8 o superior
+- Git
+- Google Chrome
+- Tesseract OCR
+
+### 2. Clonar Repositorio
+
+```powershell
+git clone git@github.com:Psico777/CompletaAutomatizacion.git
+cd CompletaAutomatizacion
+```
+
+### 3. Crear Entorno Virtual
+
+```powershell
+python -m venv venv
+.\venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Linux/Mac
+```
+
+### 4. Instalar Dependencias
+
+```powershell
+pip install -r requirements.txt
+```
+
+### 5. Configurar Variables de Entorno
+
+```powershell
+# Copiar template de configuración
+copy .env.example .env
+
+# Editar .env y agregar tu API key de Gemini
+# GEMINI_API_KEY=TU_API_KEY_AQUI
+```
+
+### 6. Instalar Tesseract OCR
+
+**Windows:**
+- Descargar desde: https://github.com/UB-Mannheim/tesseract/wiki
+- Instalar en: `C:\Program Files\Tesseract-OCR\`
+- Verificar: `tesseract --version`
+
+**Linux:**
+```bash
+sudo apt install tesseract-ocr
+```
+
+**Mac:**
+```bash
+brew install tesseract
+```
+
+---
+
+## 🧪 Probar Instalación
+
+```powershell
+# Verificar configuración
+python config.py
+
+# Probar Gemini con texto
+python experimental/test_gemini_text.py
+```
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+CompletaAutomatizacion/
+├── core/                      # Módulos principales
+│   ├── ai_manager.py         # Gestor de Gemini AI
+│   ├── logger.py             # Sistema de logging
+│   └── utils.py              # Utilidades
+├── whatsapp/                  # Bot de WhatsApp
+│   ├── bot.py
+│   └── message_handler.py
+├── facebook/                  # Bot de Facebook
+│   ├── bot.py
+│   └── message_handler.py
+├── payment/                   # Verificación de pagos
+│   ├── verifier.py
+│   ├── ocr_processor.py
+│   └── validators.py
+├── experimental/              # Pruebas y ejemplos
+│   ├── test_gemini_text.py
+│   ├── test_gemini_vision.py
+│   └── test_gemini_image.py
+├── downloads/                 # Vouchers descargados
+├── logs/                      # Archivos de log
+├── config.py                  # Configuración central
+├── main.py                    # Orchestador principal
+└── requirements.txt           # Dependencias
+```
+
+---
+
+## 🤖 Modelos de Gemini Utilizados
+
+| Modelo | Uso | Características |
+|--------|-----|----------------|
+| **gemini-2.5-pro** | Chat con clientes | Pensamiento profundo, mejor conversación |
+| **gemini-2.5-flash** | OCR y visión | Rápido, preciso para imágenes |
+| **gemini-2.5-flash-lite** | Tareas simples | Ultra rápido, eficiente |
+| **gemini-2.5-flash-image** | Generación de imágenes | Creación de contenido visual |
+| **gemini-2.5-flash-preview-tts** | Texto a voz | 30 voces, 24 idiomas |
+
+---
+
+## 📖 Guía de Uso
+
+### Experimentación (Fase 1)
+
+Antes de usar el sistema completo, prueba cada funcionalidad:
+
+```powershell
+# Probar generación de texto
+python experimental/test_gemini_text.py
+
+# Probar visión y OCR (requiere imagen de prueba)
+python experimental/test_gemini_vision.py
+
+# Probar generación de imágenes
+python experimental/test_gemini_image.py
+
+# Probar texto a voz
+python experimental/test_gemini_tts.py
+```
+
+### Bot de WhatsApp (Fase 2)
+
+```powershell
+python main.py
+# Seleccionar opción 1: Iniciar Bot de WhatsApp
+```
+
+### Verificar Pago Manual
+
+```powershell
+python main.py
+# Seleccionar opción 3: Verificar Voucher Manual
+```
+
+---
+
+## ⚙️ Configuración
+
+Edita el archivo `.env` para personalizar:
+
+```env
+# API de Gemini
+GEMINI_API_KEY=TU_API_KEY_AQUI
+
+# Modelos a usar
+MODEL_CHAT=gemini-2.5-pro
+MODEL_VISION=gemini-2.5-flash
+MODEL_IMAGE=gemini-2.5-flash-image
+
+# Instrucción del sistema
+SYSTEM_INSTRUCTION=Eres un asistente de ventas amable...
+
+# Temperatura (creatividad)
+CHAT_TEMPERATURE=0.7
+
+# Modo desarrollo
+DEV_MODE=True
+```
+
+---
+
+## 🔥 Roadmap del Proyecto
+
+### ✅ Completado
+- [x] Estructura del proyecto
+- [x] Configuración de dependencias
+- [x] Plan de desarrollo completo
+- [x] Tests de experimentación con Gemini
+
+### 🚧 En Progreso
+- [ ] Bot de WhatsApp básico
+- [ ] Integración con Gemini AI
+- [ ] Sistema de OCR para vouchers
+
+### 📋 Pendiente
+- [ ] Bot de Facebook Messenger
+- [ ] Publicación automática de estados
+- [ ] Sistema de programación de tareas
+- [ ] Dashboard de monitoreo
+- [ ] Tests unitarios completos
+
+---
+
+## 📝 Desarrollo Paso a Paso
+
+Consulta **[PLAN_DESARROLLO.md](PLAN_DESARROLLO.md)** para la guía completa con:
+
+- ✅ Checklist detallado de cada fase
+- 💻 Ejemplos de código completos
+- 🎯 Objetivos de cada módulo
+- 📚 Documentación de APIs
+- 🐛 Troubleshooting
+
+---
+
+## 🤝 Contribuir
+
+1. Fork el proyecto
+2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit tus cambios (`git commit -am 'Agregar nueva funcionalidad'`)
+4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Crea un Pull Request
+
+---
+
+## 📄 Licencia
+
+Este proyecto es privado y de uso interno.
+
+---
+
+## 🆘 Soporte
+
+- 📧 Reportar issues en GitHub
+- 📖 Consultar documentación en `docs/`
+- 🧪 Revisar ejemplos en `experimental/`
+
+---
+
+## 🎓 Recursos
+
+- [Documentación oficial de Gemini](https://ai.google.dev/gemini-api/docs)
+- [Selenium Documentation](https://www.selenium.dev/documentation/)
+- [Python Tesseract](https://github.com/madmaze/pytesseract)
+
+---
+
+**Última actualización**: 22 de Octubre, 2025  
+**Versión**: 1.0.0  
+**Estado**: 🚧 En desarrollo activo
+
+---
+
 ¡Excelente! Vamos a trazar un plan de batalla concreto y detallado. Esta es una guía paso a paso, desde la configuración inicial hasta la implementación de cada módulo, pensada para que la desarrolles usando Python y con GitHub Copilot como tu asistente de programación.
+
+## 📚 Documentación Original
 
 Fase 0: Preparación y Configuración del Entorno
 

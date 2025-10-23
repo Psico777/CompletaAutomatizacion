@@ -1,0 +1,85 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Entorno virtual
+venv/
+ENV/
+env/
+
+# Variables de entorno
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Archivos descargados
+downloads/*
+!downloads/.gitkeep
+
+# Historial de pagos (datos sensibles)
+payment/historial_pagos.json
+
+# Chrome Driver
+chromedriver.exe
+chromedriver
+
+# Archivos de prueba
+experimental/test_*.png
+experimental/test_*.jpg
+experimental/test_*.wav
+experimental/*.wav
+experimental/*.png
+experimental/*.jpg
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Sistema
+Thumbs.db
+desktop.ini
+
+# Temporal
+tmp/
+temp/
+*.tmp
+
+# Jupyter notebooks (si se usan)
+.ipynb_checkpoints/
+*.ipynb
+
+# Screenshots de WhatsApp/Facebook
+screenshots/
