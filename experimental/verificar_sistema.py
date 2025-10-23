@@ -25,7 +25,7 @@ def verificar_dependencias():
     print("\n📦 Verificando dependencias...")
     
     dependencias = {
-        'google.genai': 'google-generativeai',
+        'google.generativeai': 'google-generativeai',
         'pydantic': 'pydantic',
         'selenium': 'selenium',
         'PIL': 'Pillow',
